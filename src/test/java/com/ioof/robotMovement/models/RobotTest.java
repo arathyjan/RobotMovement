@@ -3,6 +3,9 @@ package com.ioof.robotMovement.models;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 import static org.junit.Assert.assertEquals;
 
 public class RobotTest {
@@ -107,5 +110,16 @@ public class RobotTest {
         robot.run("REPORT");
 
         assertEquals(null, robot.getCurrentLocation());
+    }
+
+    @Test
+    public void shouldReadFromFileExecuteAllCommmands() throws IOException, URISyntaxException {
+        Robot robot = new Robot(tableTop);
+
+        robot.run();
+
+        assertEquals(3, robot.getCurrentLocation().getCoordinate().getX());
+        assertEquals(3, robot.getCurrentLocation().getCoordinate().getY());
+        assertEquals(Direction.NORTH, robot.getCurrentLocation().getDirection());
     }
 }
