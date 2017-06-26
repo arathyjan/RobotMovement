@@ -37,4 +37,33 @@ public class DirectionTest {
         assertEquals(-1, coordinate.getX());
         assertEquals(0, coordinate.getY());
     }
+
+    @Test
+    public void directionAfterTurningLeftForNorth() {
+        Direction direction = Direction.NORTH.left();
+
+        assertEquals(Direction.WEST, direction);
+    }
+
+    @Test
+    public void directionAfterTurningLeftForWest() {
+        Direction direction = Direction.WEST.left();
+
+        assertEquals(Direction.SOUTH, direction);
+    }
+
+    @Test
+    public void directionAfterTurningLeftForSouth() {
+        Direction direction = Direction.SOUTH.left();
+
+        assertEquals(Direction.EAST, direction);
+    }
+
+    @Test
+    public void directionAfterTurningLeftForEast() {
+        Direction direction = Direction.EAST.left();
+
+        assertEquals(Direction.NORTH, direction);
+    }
+
 }
