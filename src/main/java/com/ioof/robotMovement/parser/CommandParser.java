@@ -14,6 +14,7 @@ public class CommandParser {
         put("MOVE", new MoveCommand());
         put("LEFT", new LeftCommand());
         put("RIGHT", new RightCommand());
+        put("REPORT", new ReportCommand());
     }};
 
     public static ICommand parse(String commandString) {

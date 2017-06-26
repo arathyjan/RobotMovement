@@ -40,4 +40,11 @@ public class CommandParserTest {
 
         assertTrue(command instanceof RightCommand);
     }
+
+    @Test
+    public void parseREPORTCommand() {
+        ICommand command = CommandParser.parse("REPORT");
+
+        assertTrue(command instanceof ReportCommand);
+    }
 }
