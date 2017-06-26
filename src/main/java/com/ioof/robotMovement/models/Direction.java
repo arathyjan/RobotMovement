@@ -11,6 +11,11 @@ public enum Direction {
         public Direction left() {
             return WEST;
         }
+
+        @Override
+        public Direction right() {
+            return EAST;
+        }
     },
 
     SOUTH {
@@ -22,6 +27,11 @@ public enum Direction {
         @Override
         public Direction left() {
             return EAST;
+        }
+
+        @Override
+        public Direction right() {
+            return WEST;
         }
     },
 
@@ -35,6 +45,11 @@ public enum Direction {
         public Direction left() {
             return NORTH;
         }
+
+        @Override
+        public Direction right() {
+            return SOUTH;
+        }
     },
 
     WEST {
@@ -47,9 +62,16 @@ public enum Direction {
         public Direction left() {
             return SOUTH;
         }
+
+        @Override
+        public Direction right() {
+            return NORTH;
+        }
     };
 
     public abstract Coordinate relativeCoordinateForMove();
 
     public abstract Direction left();
+
+    public abstract Direction right();
 }

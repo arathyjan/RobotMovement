@@ -66,4 +66,25 @@ public class RobotTest {
 
         assertEquals(null, robot.getCurrentLocation());
     }
+
+    @Test
+    public void runRightCommandSuccessfully() {
+        Robot robot = new Robot(tableTop);
+
+        robot.run("PLACE 3,4,NORTH");
+        robot.run("RIGHT");
+
+        assertEquals(3, robot.getCurrentLocation().getCoordinate().getX());
+        assertEquals(4, robot.getCurrentLocation().getCoordinate().getY());
+        assertEquals(Direction.EAST, robot.getCurrentLocation().getDirection());
+    }
+
+    @Test
+    public void shouldSkipRightIfPlaceNotExecuted() {
+        Robot robot = new Robot(tableTop);
+
+        robot.run("RIGHT");
+
+        assertEquals(null, robot.getCurrentLocation());
+    }
 }

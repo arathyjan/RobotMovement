@@ -66,4 +66,33 @@ public class DirectionTest {
         assertEquals(Direction.NORTH, direction);
     }
 
+
+    @Test
+    public void directionAfterTurningRightForNorth() {
+        Direction direction = Direction.NORTH.right();
+
+        assertEquals(Direction.EAST, direction);
+    }
+
+    @Test
+    public void directionAfterTurningRightForWest() {
+        Direction direction = Direction.WEST.right();
+
+        assertEquals(Direction.NORTH, direction);
+    }
+
+    @Test
+    public void directionAfterTurningRightForSouth() {
+        Direction direction = Direction.SOUTH.right();
+
+        assertEquals(Direction.WEST, direction);
+    }
+
+    @Test
+    public void directionAfterTurningRightForEast() {
+        Direction direction = Direction.EAST.right();
+
+        assertEquals(Direction.SOUTH, direction);
+    }
+
 }

@@ -1,9 +1,6 @@
 package com.ioof.robotMovement.parser;
 
-import com.ioof.robotMovement.commands.ICommand;
-import com.ioof.robotMovement.commands.LeftCommand;
-import com.ioof.robotMovement.commands.MoveCommand;
-import com.ioof.robotMovement.commands.PlaceCommand;
+import com.ioof.robotMovement.commands.*;
 import com.ioof.robotMovement.models.Direction;
 import org.junit.Test;
 
@@ -35,5 +32,12 @@ public class CommandParserTest {
         ICommand command = CommandParser.parse("LEFT");
 
         assertTrue(command instanceof LeftCommand);
+    }
+
+    @Test
+    public void parseRIGHTCommand() {
+        ICommand command = CommandParser.parse("RIGHT");
+
+        assertTrue(command instanceof RightCommand);
     }
 }
