@@ -47,4 +47,18 @@ public class CommandParserTest {
 
         assertTrue(command instanceof ReportCommand);
     }
+
+    @Test
+    public void unknownCommand() {
+        ICommand command = CommandParser.parse("UNKNWON");
+
+        assertTrue(command instanceof UnknownCommand);
+    }
+
+    @Test
+    public void unknownCommandWithWordPLACEAndDirectionWrong() {
+        assertTrue(CommandParser.parse("PLACE 0,0,ABCD") instanceof UnknownCommand);
+        assertTrue(CommandParser.parse("PLACE something") instanceof UnknownCommand);
+        assertTrue(CommandParser.parse("PLACE 0,0, ") instanceof UnknownCommand);
+    }
 }
