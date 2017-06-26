@@ -9,10 +9,10 @@ public class TableTop {
         this.topRight = topRight;
     }
 
-    public boolean isOutOfTableTop(Coordinate coordinateAfterMove) {
-        return coordinateAfterMove.getX() < bottomLeft.getX()
-                || coordinateAfterMove.getX() >= topRight.getX()
-                || coordinateAfterMove.getY() < bottomLeft.getY()
-                || coordinateAfterMove.getY() >= topRight.getY();
+    public boolean isOutOfTableTop(Coordinate coordinate) {
+        return coordinate.getX() < bottomLeft.getX()
+                || coordinate.getX() >= topRight.getX()
+                || coordinate.getY() < bottomLeft.getY()
+                || coordinate.getY() >= topRight.getY();
     }
 }

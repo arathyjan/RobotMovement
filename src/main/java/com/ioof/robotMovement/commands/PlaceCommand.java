@@ -16,6 +16,6 @@ public class PlaceCommand implements ICommand {
 
     @Override
     public Location execute(Location currentLocation, TableTop tableTop) {
-        return location;
+        return tableTop.isOutOfTableTop(location.getCoordinate()) ? currentLocation : location;
     }
 }
