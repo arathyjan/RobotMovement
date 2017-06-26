@@ -1,6 +1,7 @@
 package com.ioof.robotMovement.commands;
 
 import com.ioof.robotMovement.models.Location;
+import com.ioof.robotMovement.models.TableTop;
 
 public class PlaceCommand implements ICommand {
     private Location location;
@@ -14,7 +15,7 @@ public class PlaceCommand implements ICommand {
     }
 
     @Override
-    public Location execute(Location currentLocation) {
+    public Location execute(Location currentLocation, TableTop tableTop) {
         return location;
     }
 }

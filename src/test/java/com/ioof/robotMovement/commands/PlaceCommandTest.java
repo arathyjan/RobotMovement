@@ -14,7 +14,7 @@ public class PlaceCommandTest {
         Location location = new Location(new Coordinate(1, 2), Direction.EAST);
         PlaceCommand placeCommand = new PlaceCommand(location);
 
-        Location placedLocation = placeCommand.execute(null);
+        Location placedLocation = placeCommand.execute(null, null);
 
         assertEquals(location, placedLocation);
     }

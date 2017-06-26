@@ -13,7 +13,7 @@ public class LeftCommandTest {
     public void executeMoveCommandWillMoveInCorrectDirection() {
         ICommand leftCommand = new LeftCommand();
 
-        Location location = leftCommand.execute(new Location(new Coordinate(2, 3), Direction.EAST));
+        Location location = leftCommand.execute(new Location(new Coordinate(2, 3), Direction.EAST), null);
 
         assertEquals(2, location.getCoordinate().getX());
         assertEquals(3, location.getCoordinate().getY());
@@ -24,7 +24,7 @@ public class LeftCommandTest {
     public void shouldSkipMoveIfLocationIsNull() {
         ICommand leftCommand = new LeftCommand();
 
-        Location location = leftCommand.execute(null);
+        Location location = leftCommand.execute(null, null);
 
         assertEquals(null, location);
     }

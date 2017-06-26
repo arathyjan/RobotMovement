@@ -32,7 +32,7 @@ public class ReportCommandTest {
         expect(LocationWriter.write("2,3,EAST")).andReturn(true);
 
         replayAll();
-        reportCommand.execute(new Location(new Coordinate(2, 3), Direction.EAST));
+        reportCommand.execute(new Location(new Coordinate(2, 3), Direction.EAST), null);
         verifyAll();
     }
 
@@ -40,7 +40,7 @@ public class ReportCommandTest {
     public void executeReportCommandReturnBackSameLocation() {
         ICommand reportCommand = new ReportCommand();
 
-        Location location = reportCommand.execute(new Location(new Coordinate(2, 3), Direction.EAST));
+        Location location = reportCommand.execute(new Location(new Coordinate(2, 3), Direction.EAST), null);
 
         assertEquals(2, location.getCoordinate().getX());
         assertEquals(3, location.getCoordinate().getY());
@@ -51,7 +51,7 @@ public class ReportCommandTest {
     public void shouldSkipMoveIfLocationIsNull() {
         ICommand reportCommand = new ReportCommand();
 
-        Location location = reportCommand.execute(null);
+        Location location = reportCommand.execute(null, null);
 
         assertEquals(null, location);
     }

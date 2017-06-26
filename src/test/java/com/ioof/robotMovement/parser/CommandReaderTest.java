@@ -14,9 +14,8 @@ public class CommandReaderTest {
     public void shouldReadCommandsFromFile() throws IOException, URISyntaxException {
         List<String> commandStringList = CommandReader.readInput();
 
-        assertEquals(12, commandStringList.size());
-        assertEquals("PLACE 0,0,NORTH", commandStringList.get(0));
+        assertEquals(24, commandStringList.size());
+        assertEquals("PLACE 4,2,EAST", commandStringList.get(0));
         assertEquals("REPORT", commandStringList.get(11));
     }
-
 }

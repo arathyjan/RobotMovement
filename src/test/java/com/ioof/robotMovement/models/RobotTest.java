@@ -32,11 +32,11 @@ public class RobotTest {
     public void runMoveCommandSuccessfully() {
         Robot robot = new Robot(tableTop);
 
-        robot.run("PLACE 3,4,NORTH");
+        robot.run("PLACE 3,3,NORTH");
         robot.run("MOVE");
 
         assertEquals(3, robot.getCurrentLocation().getCoordinate().getX());
-        assertEquals(5, robot.getCurrentLocation().getCoordinate().getY());
+        assertEquals(4, robot.getCurrentLocation().getCoordinate().getY());
         assertEquals(Direction.NORTH, robot.getCurrentLocation().getDirection());
     }
 
@@ -113,7 +113,23 @@ public class RobotTest {
     }
 
     @Test
-    public void shouldReadFromFileExecuteAllCommmands() throws IOException, URISyntaxException {
+    public void ShouldSkipMoveCommandIfGoingOutOfTableTop() {
+        Robot robot = new Robot(tableTop);
+
+        robot.run("PLACE 4,4,NORTH");
+        robot.run("MOVE");
+        robot.run("MOVE");
+        robot.run("MOVE");
+        robot.run("MOVE");
+        robot.run("MOVE");
+
+        assertEquals(4, robot.getCurrentLocation().getCoordinate().getX());
+        assertEquals(4, robot.getCurrentLocation().getCoordinate().getY());
+        assertEquals(Direction.NORTH, robot.getCurrentLocation().getDirection());
+    }
+
+    @Test
+    public void shouldReadFromFileExecuteAllCommands() throws IOException, URISyntaxException {
         Robot robot = new Robot(tableTop);
 
         robot.run();

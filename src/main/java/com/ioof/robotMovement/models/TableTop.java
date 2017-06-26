@@ -8,4 +8,11 @@ public class TableTop {
         this.bottomLeft = bottomLeft;
         this.topRight = topRight;
     }
+
+    public boolean isOutOfTableTop(Coordinate coordinateAfterMove) {
+        return coordinateAfterMove.getX() < bottomLeft.getX()
+                || coordinateAfterMove.getX() >= topRight.getX()
+                || coordinateAfterMove.getY() < bottomLeft.getY()
+                || coordinateAfterMove.getY() >= topRight.getY();
+    }
 }

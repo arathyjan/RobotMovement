@@ -22,7 +22,7 @@ public class Robot {
 
     void run(String commandString) {
         ICommand command = CommandParser.parse(commandString);
-        currentLocation = command.execute(currentLocation);
+        currentLocation = command.execute(currentLocation, tableTop);
     }
 
     public void run() throws IOException, URISyntaxException {
