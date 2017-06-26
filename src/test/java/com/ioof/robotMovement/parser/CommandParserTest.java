@@ -1,6 +1,7 @@
 package com.ioof.robotMovement.parser;
 
 import com.ioof.robotMovement.commands.ICommand;
+import com.ioof.robotMovement.commands.MoveCommand;
 import com.ioof.robotMovement.commands.PlaceCommand;
 import com.ioof.robotMovement.models.Direction;
 import org.junit.Test;
@@ -11,9 +12,7 @@ public class CommandParserTest {
 
     @Test
     public void parsePLACECommand() {
-        String commandString = "PLACE 0,0,NORTH";
-
-        ICommand command = CommandParser.parse(commandString);
+        ICommand command = CommandParser.parse("PLACE 0,0,NORTH");
 
         assertTrue(command instanceof PlaceCommand);
 
@@ -21,5 +20,12 @@ public class CommandParserTest {
         assertEquals(0, placeCommand.getLocation().getCoordinate().getX());
         assertEquals(0, placeCommand.getLocation().getCoordinate().getY());
         assertEquals(Direction.NORTH, placeCommand.getLocation().getDirection());
+    }
+
+    @Test
+    public void parseMOVECommand() {
+        ICommand command = CommandParser.parse("MOVE");
+
+        assertTrue(command instanceof MoveCommand);
     }
 }

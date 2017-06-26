@@ -15,7 +15,7 @@ public class RobotTest {
     }
 
     @Test
-    public void moveRobotAccordingToCommand() {
+    public void runPlaceCommandSuccessfully() {
         Robot robot = new Robot(tableTop);
 
         robot.run("PLACE 3,4,NORTH");
@@ -23,5 +23,27 @@ public class RobotTest {
         assertEquals(3, robot.getCurrentLocation().getCoordinate().getX());
         assertEquals(4, robot.getCurrentLocation().getCoordinate().getY());
         assertEquals(Direction.NORTH, robot.getCurrentLocation().getDirection());
+    }
+
+    @Test
+    public void runMoveCommandSuccessfully() {
+        Robot robot = new Robot(tableTop);
+
+        robot.run("PLACE 3,4,NORTH");
+        robot.run("MOVE");
+
+        assertEquals(3, robot.getCurrentLocation().getCoordinate().getX());
+        assertEquals(5, robot.getCurrentLocation().getCoordinate().getY());
+        assertEquals(Direction.NORTH, robot.getCurrentLocation().getDirection());
+    }
+
+
+    @Test
+    public void shouldSkipMoveIfPlaceNotExecuted() {
+        Robot robot = new Robot(tableTop);
+
+        robot.run("MOVE");
+
+        assertEquals(null, robot.getCurrentLocation());
     }
 }
